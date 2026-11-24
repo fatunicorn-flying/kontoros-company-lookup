@@ -151,7 +151,7 @@ msgstr "WooCommerce pagal nutylėjimą slepia lauką „Įmonė“ ir tada įmon
 #. Plugin Name of the plugin
 #: kontoros-company-lookup.php
 msgid "Kontoros Company Lookup for WooCommerce"
-msgstr "Kontoros įmonių paieška WooCommerce"
+msgstr "Kontoros Company Lookup for WooCommerce"
 
 #. Plugin URI of the plugin
 #: kontoros-company-lookup.php
