@@ -34,7 +34,7 @@ No more typos in invoice details, and checkout is faster for business customers.
 * If the lookup service can't be reached, customers simply type their details by hand. Checkout is never blocked.
 * English and Lithuanian included.
 
-Source code and bug reports: [GitHub](https://github.com/GITHUB_USER/kontoros-company-lookup).
+Source code and bug reports: [GitHub](https://github.com/fatunicorn-flying/kontoros-company-lookup).
 
 = Free to use =
 
