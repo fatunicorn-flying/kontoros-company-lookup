@@ -1,0 +1,40 @@
+# Push a tag like v1.2.0 to publish that version on WordPress.org and attach the zip to a GitHub release.
+# Needs repository secrets SVN_USERNAME and SVN_PASSWORD (WordPress.org username and SVN password).
+name: Deploy to WordPress.org
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Tag matches plugin version
+        run: |
+          tag="${GITHUB_REF_NAME#v}"
+          header=$(grep -Po '^ \* Version:\s*\K\S+' kontoros-company-lookup.php)
+          stable=$(grep -Po '^Stable tag:\s*\K\S+' readme.txt)
+          echo "tag=$tag header=$header stable=$stable"
+          test "$tag" = "$header" && test "$tag" = "$stable"
+
+      - name: Deploy to WordPress.org SVN
+        id: deploy
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        with:
+          generate-zip: true
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: kontoros-company-lookup
+
+      - name: GitHub release with zip
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.deploy.outputs.zip-path }}
+          generate_release_notes: true

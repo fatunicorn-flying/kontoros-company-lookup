@@ -1,0 +1,10 @@
+# Not shipped in the plugin zip / WordPress.org SVN trunk
+/.git
+/.github
+/.wordpress-org
+/bin
+.distignore
+.gitignore
+.gitattributes
+README.md
+RELEASING.md

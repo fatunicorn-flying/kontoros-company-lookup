@@ -1,0 +1,66 @@
+.kontoros-cl-list {
+	position: absolute;
+	z-index: 1000;
+	top: 100%;
+	left: 0;
+	width: max(100%, min(460px, 92vw));
+	box-sizing: border-box;
+	overflow-x: hidden;
+	margin: 2px 0 0;
+	padding: 4px 0;
+	list-style: none;
+	max-height: 320px;
+	overflow-y: auto;
+	background: #fff;
+	color: #1e293b;
+	border: 1px solid #cbd5e1;
+	border-radius: 6px;
+	box-shadow: 0 8px 24px rgba(15, 23, 42, .12);
+	font-size: 14px;
+	line-height: 1.35;
+	text-align: left;
+}
+.kontoros-cl-item {
+	display: block;
+	margin: 0;
+	padding: 8px 12px;
+	cursor: pointer;
+}
+.kontoros-cl-item:hover,
+.kontoros-cl-item.is-active {
+	background: #eef2ff;
+}
+.kontoros-cl-name {
+	display: block;
+	font-weight: 600;
+}
+.kontoros-cl-meta {
+	display: block;
+	white-space: normal;
+	overflow-wrap: anywhere;
+	font-size: 12px;
+	color: #64748b;
+}
+.kontoros-cl-item.is-inactive .kontoros-cl-name {
+	color: #64748b;
+}
+.kontoros-cl-badge {
+	margin-left: 6px;
+	padding: 1px 6px;
+	border-radius: 9px;
+	background: #fee2e2;
+	color: #b91c1c;
+	font-size: 11px;
+	font-weight: 500;
+}
+.kontoros-cl-source {
+	margin: 0;
+	padding: 4px 12px 2px;
+	border-top: 1px solid #f1f5f9;
+	font-size: 11px;
+	text-align: right;
+}
+.kontoros-cl-source a {
+	color: #94a3b8;
+	text-decoration: none;
+}

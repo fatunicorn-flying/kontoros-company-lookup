@@ -1,0 +1,13 @@
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.mo binary
+
+/.github export-ignore
+/.wordpress-org export-ignore
+/bin export-ignore
+.distignore export-ignore
+.gitignore export-ignore
+.gitattributes export-ignore
+README.md export-ignore
+RELEASING.md export-ignore
