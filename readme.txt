@@ -1,5 +1,5 @@
 === Kontoros Company Lookup for WooCommerce ===
-Contributors: WPORG_USERNAME
+Contributors: mitriai
 Tags: woocommerce, checkout, company, vat, lithuania
 Requires at least: 6.5
 Tested up to: 7.1
