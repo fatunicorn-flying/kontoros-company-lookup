@@ -23,6 +23,13 @@ jobs:
           echo "tag=$tag header=$header stable=$stable"
           test "$tag" = "$header" && test "$tag" = "$stable"
 
+      - name: WordPress.org secrets present
+        run: |
+          if [ -z "${{ secrets.SVN_USERNAME }}" ] || [ -z "${{ secrets.SVN_PASSWORD }}" ]; then
+            echo "::error::Add SVN_USERNAME and SVN_PASSWORD repository secrets first (see RELEASING.md)."
+            exit 1
+          fi
+
       - name: Deploy to WordPress.org SVN
         id: deploy
         uses: 10up/action-wordpress-plugin-deploy@stable

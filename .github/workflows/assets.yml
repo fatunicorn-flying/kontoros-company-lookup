@@ -11,9 +11,16 @@ on:
 jobs:
   assets:
     runs-on: ubuntu-latest
+    env:
+      # Skips quietly until the WordPress.org SVN secrets are added (after the plugin is approved).
+      HAS_SVN: ${{ secrets.SVN_USERNAME != '' && secrets.SVN_PASSWORD != '' }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: 10up/action-wordpress-plugin-asset-update@stable
+      - if: env.HAS_SVN != 'true'
+        run: echo "::notice::SVN_USERNAME / SVN_PASSWORD secrets not set, skipping WordPress.org update."
+      - if: env.HAS_SVN == 'true'
+        uses: actions/checkout@v4
+      - if: env.HAS_SVN == 'true'
+        uses: 10up/action-wordpress-plugin-asset-update@stable
         env:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
